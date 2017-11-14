@@ -1,13 +1,12 @@
 package br.com.clienteweb.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import br.com.cliente.model.Usuario;
 
 
 public class LoginServlet extends HttpServlet {
@@ -24,12 +23,30 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String usuario = request.getParameter("usuario");
-		String senha = request.getParameter("senha");
+		String nome = request.getParameter("inputEmail");
+		String senha = request.getParameter("inputPassword");
 		
-		Usuario usuario1 = new Usuario(usuario. senha);
-		bollean autenticado = usuario.login();
+		IDefaultDao daoUsuario = new UsuarioDao();
+		List<Usuario> Lista = (<List<Usuario>) daoUsuarioDao.select();
 		
+		boolean autenticado = false;
+		
+		private String getparamter(HttpServletRequest request, String parametro) {
+			
+			if (request != null && parametro != null && !request.equals("")) {
+				for (String cliente : clientes) {
+					if (cliente.toUpperCase().contains(filtro.toUpperCase()))
+						autenticado = true;
+				}
+			} else {
+				autenticado = false;
+			
+		}
+
+
+	
+			}
+			return autenticado;
 		
 	}
 
